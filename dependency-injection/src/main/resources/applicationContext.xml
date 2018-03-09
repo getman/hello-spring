@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "car" class = "ru.aparfenov.spring3.di.car.Car">
+        <property name = "engineField" ref = "engineBean"/>
+        <property name = "wheels">
+            <list>
+                <ref bean = "lf-wheel-bean" />
+                <ref bean = "rf-wheel-bean" />
+                <ref bean = "lr-wheel-bean" />
+                <ref bean = "rr-wheel-bean" />
+            </list>
+        </property>
+        <property name = "headLamp" ref = "head-lamp-bean"/>
+    </bean>
+
+    <bean id = "engineBean" class="ru.aparfenov.spring3.di.engine.EngineImpl">
+    </bean>
+
+    <bean id="lf-wheel-bean" class="ru.aparfenov.spring3.di.wheel.WheelImpl"/>
+    <bean id="rf-wheel-bean" class="ru.aparfenov.spring3.di.wheel.WheelImpl"/>
+    <bean id="lr-wheel-bean" class="ru.aparfenov.spring3.di.wheel.WheelImpl"/>
+    <bean id="rr-wheel-bean" class="ru.aparfenov.spring3.di.wheel.WheelImpl"/>
+
+    <bean id="head-lamp-bean" class="ru.aparfenov.spring3.di.headlamp.HeadLamp"/>
+</beans>
